@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Listado de productos
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css")
+
+body
+    .container.mt-3
+        .jumbotron
+            h2(style='color:blue;') Listado de Productos
+            if (hayProducto)
+                table.table-responsive
+                    table.table-dark.table-striped 
+                        tr(style='color: yellow;')
+                            th Titulo 
+                            th Precio 
+                            th Foto URL   
+                        each n in productos
+                            tr
+                                td= n.title
+                                td= n.price    
+                                td= ''   
+                                    img(src=n.thumbnail, width="50")                
+            else
+                h3.alert.alert-danger no se encontraron datos
+        button.btn.btn-link.mt-3.mb-5(type="button" onclick="window.location.href='/'") Carga de Productos
